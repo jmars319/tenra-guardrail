@@ -9,4 +9,3 @@ pnpm-debug.log*
 .tenra-guardrail-external-reviews.json
 apps/desktopapp/src-tauri/target
 apps/desktopapp/src-tauri/gen
-apps/desktopapp/src-tauri/Cargo.lock
