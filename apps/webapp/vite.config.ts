@@ -21,6 +21,37 @@ function readRequestBody(request: import("node:http").IncomingMessage): Promise<
   });
 }
 
+const defaultSuiteAllowedOrigins = [
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+  "http://localhost:5176",
+  "http://127.0.0.1:5176",
+  "http://localhost:3000",
+  "http://127.0.0.1:3000"
+];
+
+function readSuiteAllowedOrigins() {
+  return (process.env.GUARDRAIL_SUITE_ALLOWED_ORIGINS ?? defaultSuiteAllowedOrigins.join(","))
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+}
+
+function applyCors(request: import("node:http").IncomingMessage, response: import("node:http").ServerResponse) {
+  const origin = request.headers.origin;
+  const allowedOrigins = readSuiteAllowedOrigins();
+  const originAllowed = !origin || allowedOrigins.includes(origin);
+
+  if (origin && originAllowed) {
+    response.setHeader("Access-Control-Allow-Origin", origin);
+    response.setHeader("Vary", "Origin");
+  }
+  response.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  response.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+
+  return originAllowed;
+}
+
 export default defineConfig({
   plugins: [
     react(),
@@ -28,8 +59,20 @@ export default defineConfig({
       name: "guardrail-external-review-api",
       configureServer(server) {
         server.middlewares.use("/api/external-reviews", async (request, response, next) => {
+          const originAllowed = applyCors(request, response);
+          if (request.method === "OPTIONS") {
+            response.statusCode = originAllowed ? 204 : 403;
+            response.end();
+            return;
+          }
           if (request.method !== "GET" && request.method !== "POST") {
             next();
+            return;
+          }
+          if (!originAllowed) {
+            response.statusCode = 403;
+            response.setHeader("Content-Type", "application/json; charset=utf-8");
+            response.end(JSON.stringify({ ok: false, errors: ["Origin is not allowed for Guardrail external reviews."] }));
             return;
           }
 
@@ -52,8 +95,20 @@ export default defineConfig({
         });
 
         server.middlewares.use("/api/external-review-decisions", async (request, response, next) => {
+          const originAllowed = applyCors(request, response);
+          if (request.method === "OPTIONS") {
+            response.statusCode = originAllowed ? 204 : 403;
+            response.end();
+            return;
+          }
           if (request.method !== "GET" && request.method !== "POST") {
             next();
+            return;
+          }
+          if (!originAllowed) {
+            response.statusCode = 403;
+            response.setHeader("Content-Type", "application/json; charset=utf-8");
+            response.end(JSON.stringify({ ok: false, errors: ["Origin is not allowed for Guardrail decisions."] }));
             return;
           }
 
@@ -90,8 +145,20 @@ export default defineConfig({
         });
 
         server.middlewares.use("/api/external-review-callbacks", async (request, response, next) => {
+          const originAllowed = applyCors(request, response);
+          if (request.method === "OPTIONS") {
+            response.statusCode = originAllowed ? 204 : 403;
+            response.end();
+            return;
+          }
           if (request.method !== "POST") {
             next();
+            return;
+          }
+          if (!originAllowed) {
+            response.statusCode = 403;
+            response.setHeader("Content-Type", "application/json; charset=utf-8");
+            response.end(JSON.stringify({ ok: false, errors: ["Origin is not allowed for Guardrail callbacks."] }));
             return;
           }
 

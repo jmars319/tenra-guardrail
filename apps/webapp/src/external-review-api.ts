@@ -161,10 +161,11 @@ export function createExternalReviewDecision(input: {
     reason: input.reason,
     reviewerLabel: input.reviewerLabel
   });
+  const callbackEndpoint = input.callbackUrl?.trim() || item.callback?.endpoint?.trim();
   item.decision = decision;
-  item.callback = input.callbackUrl
+  item.callback = callbackEndpoint
     ? {
-        endpoint: input.callbackUrl,
+        endpoint: callbackEndpoint,
         status: "not-configured",
         message: "Decision callback has not been sent yet."
       }
