@@ -79,6 +79,7 @@ export interface ExternalActionReviewRequest {
   }>;
   recommendedDecision?: "allow" | "review" | "deny";
   traceId: string;
+  callbackUrl?: string | undefined;
 }
 
 export type ExternalActionReviewDecisionValue = "allow" | "review" | "deny";

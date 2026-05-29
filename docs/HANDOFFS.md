@@ -5,6 +5,7 @@ tenra Guardrail stays unique because runtime policy enforcement, Tool Host bound
 ## Consumes
 
 - `tenra-guardrail.external-action-review.v1` requests from Proxy, Registry, Align, Scout, Sentinel, Vicina, Partition, and manual workflows.
+- Optional review `callbackUrl` values, stored as the default decision callback endpoint for the request trace.
 - Runtime snapshot evidence and policy context for review.
 
 ## Produces

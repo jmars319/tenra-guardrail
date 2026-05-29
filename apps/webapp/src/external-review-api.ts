@@ -57,10 +57,20 @@ const queue: ExternalReviewQueueItem[] = readPersistedQueue();
 function upsertRequest(request: ExternalActionReviewRequest): ExternalReviewQueueItem {
   const importedAt = new Date().toISOString();
   const existingIndex = queue.findIndex((item) => item.request.traceId === request.traceId);
+  const existing = existingIndex >= 0 ? queue[existingIndex] : undefined;
+  const callbackEndpoint = request.callbackUrl?.trim();
+  const callback = callbackEndpoint
+    ? {
+        endpoint: callbackEndpoint,
+        status: "not-configured" as const,
+        message: "Decision callback has not been sent yet."
+      }
+    : existing?.callback;
   const item: ExternalReviewQueueItem = {
     request,
     importedAt,
-    decision: existingIndex >= 0 ? queue[existingIndex]?.decision : undefined
+    decision: existing?.decision,
+    ...(callback ? { callback } : {})
   };
 
   if (existingIndex >= 0) {

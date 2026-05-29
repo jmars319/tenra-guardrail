@@ -90,6 +90,10 @@ export function validateExternalActionReviewRequest(
     }
   }
 
+  if (candidate.callbackUrl !== undefined && !isNonEmptyString(candidate.callbackUrl)) {
+    errors.push("callbackUrl must be a non-empty string when provided");
+  }
+
   return errors;
 }
 
