@@ -8,7 +8,7 @@ Runs as a complete review queue and decision workspace with local requests, temp
 
 ## Repository Path
 
-`capabilities/safety/tenra Guardrail`
+`capabilities/safety/Guardrail by Tenra`
 
 ## Required Suite Dependencies
 

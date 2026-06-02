@@ -17,7 +17,7 @@ pub fn build_denial_payload(request: &ToolRequest, trigger: DenialTrigger) -> To
             let (reason, risk_category, user_instructions, checklist) =
                 if matched_pattern.contains(".ssh") || matched_pattern.contains("Keychains") {
                     (
-                        "Credential-bearing paths are blocked by tenra Guardrail policy.".to_string(),
+                        "Credential-bearing paths are blocked by Guardrail by Tenra policy.".to_string(),
                         DenialRiskCategory::Secrets,
                         "Inspect that credential path manually outside the agent runtime. If you need diagnostics, copy only non-secret material into an approved project path first.".to_string(),
                         vec![
@@ -28,7 +28,7 @@ pub fn build_denial_payload(request: &ToolRequest, trigger: DenialTrigger) -> To
                     )
                 } else {
                     (
-                        "Secret-bearing environment files are blocked by tenra Guardrail policy.".to_string(),
+                        "Secret-bearing environment files are blocked by Guardrail by Tenra policy.".to_string(),
                         DenialRiskCategory::Secrets,
                         "Do not expose environment files to the agent. Review the file manually and surface only the minimum safe values yourself.".to_string(),
                         vec![
@@ -106,7 +106,7 @@ pub fn build_denial_payload(request: &ToolRequest, trigger: DenialTrigger) -> To
             status: "denied",
             request_id,
             action_kind: ToolRequestKind::ShellCommand,
-            reason: "Destructive or privileged shell commands are blocked by tenra Guardrail policy.".to_string(),
+            reason: "Destructive or privileged shell commands are blocked by Guardrail by Tenra policy.".to_string(),
             risk_category: DenialRiskCategory::Shell,
             user_instructions: "Run destructive maintenance manually outside the agent runtime if it is truly required, or replace it with a safer local diagnostic.".to_string(),
             checklist: vec![
@@ -121,7 +121,7 @@ pub fn build_denial_payload(request: &ToolRequest, trigger: DenialTrigger) -> To
             status: "denied",
             request_id,
             action_kind: ToolRequestKind::ShellCommand,
-            reason: "Shell execution is not enabled in the current tenra Guardrail runtime.".to_string(),
+            reason: "Shell execution is not enabled in the current Guardrail by Tenra runtime.".to_string(),
             risk_category: DenialRiskCategory::Shell,
             user_instructions: "Use the file boundary for safe reads and writes. Leave shell operations to explicit human control until a stricter approval path exists.".to_string(),
             checklist: vec![
@@ -136,7 +136,7 @@ pub fn build_denial_payload(request: &ToolRequest, trigger: DenialTrigger) -> To
             status: "denied",
             request_id,
             action_kind: ToolRequestKind::NetworkRequest,
-            reason: "Network-capable tooling is disabled in the current tenra Guardrail policy and runtime.".to_string(),
+            reason: "Network-capable tooling is disabled in the current Guardrail by Tenra policy and runtime.".to_string(),
             risk_category: DenialRiskCategory::Network,
             user_instructions: "Do not route network access through the agent while this policy is disabled. Fetch the data manually or change policy intentionally before retrying.".to_string(),
             checklist: vec![
@@ -161,7 +161,7 @@ pub fn build_execution_failure(
         action_kind: request.action_kind(),
         reason: "The request passed boundary checks but the local operation still failed.".to_string(),
         risk_category: DenialRiskCategory::Filesystem,
-        user_instructions: "Check that the path exists and is writable locally before retrying. tenra Guardrail will not guess around missing files or broken paths.".to_string(),
+        user_instructions: "Check that the path exists and is writable locally before retrying. Guardrail by Tenra will not guess around missing files or broken paths.".to_string(),
         checklist: vec![
             "Confirm the target path exists.".to_string(),
             "Verify local permissions manually.".to_string(),

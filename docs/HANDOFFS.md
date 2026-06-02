@@ -1,6 +1,6 @@
-# tenra Guardrail Handoffs
+# Guardrail by Tenra Handoffs
 
-tenra Guardrail stays unique because runtime policy enforcement, Tool Host boundaries, approvals, and audit review must be reusable across apps.
+Guardrail by Tenra stays unique because runtime policy enforcement, Tool Host boundaries, approvals, and audit review must be reusable across apps.
 
 ## Consumes
 

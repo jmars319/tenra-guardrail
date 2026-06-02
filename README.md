@@ -1,6 +1,6 @@
-# tenra Guardrail
+# Guardrail by Tenra
 
-tenra Guardrail is a local-first desktop application for running AI agents inside explicit runtime boundaries. The desktop shell wraps a Rust service and routes agent actions through a Tool Host boundary instead of letting models execute tools directly.
+Guardrail by Tenra is a local-first desktop application for running AI agents inside explicit runtime boundaries. The desktop shell wraps a Rust service and routes agent actions through a Tool Host boundary instead of letting models execute tools directly.
 
 The project is not a generic SaaS starter. Its center of gravity is policy enforcement, approvals, auditability, provider configuration, and local runtime control.
 

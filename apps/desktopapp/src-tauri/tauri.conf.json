@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "tenra Guardrail",
+  "productName": "Guardrail by Tenra",
   "version": "0.1.0",
   "identifier": "co.tenra.guardrail",
   "build": {
@@ -13,7 +13,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "tenra Guardrail",
+        "title": "Guardrail by Tenra",
         "width": 1440,
         "height": 960,
         "minWidth": 1120,

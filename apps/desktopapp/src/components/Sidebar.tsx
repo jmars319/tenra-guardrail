@@ -23,7 +23,7 @@ export function Sidebar({
         <p>{statement}</p>
       </div>
 
-      <nav className="nav-list" aria-label="tenra Guardrail sections">
+      <nav className="nav-list" aria-label="Guardrail by Tenra sections">
         {navigation.map((item) => (
           <button
             key={item.id}

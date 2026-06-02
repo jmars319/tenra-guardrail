@@ -17,7 +17,7 @@ use tauri::{
     Manager, Runtime,
 };
 
-const APP_NAME: &str = "tenra Guardrail";
+const APP_NAME: &str = "Guardrail by Tenra";
 const MENU_SETTINGS: &str = "settings";
 const MENU_CLOSE_WINDOW: &str = "close-window";
 const MENU_QUIT: &str = "quit";
@@ -44,14 +44,14 @@ pub fn run() {
                 }
             }
         })
-        .manage(RuntimeState::new().expect("failed to load tenra Guardrail policy"))
+        .manage(RuntimeState::new().expect("failed to load Guardrail by Tenra policy"))
         .invoke_handler(tauri::generate_handler![
             get_runtime_overview,
             get_runtime_boundary_snapshot,
             run_tool_request
         ])
         .build(tauri::generate_context!())
-        .expect("error while building tenra Guardrail");
+        .expect("error while building Guardrail by Tenra");
 
     app.run(|app_handle, event| match event {
         #[cfg(target_os = "macos")]

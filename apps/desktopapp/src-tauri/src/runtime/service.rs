@@ -7,7 +7,7 @@ use crate::{
 
 pub fn runtime_overview(loaded_policy_source: &str, audit_entry_count: usize) -> RuntimeOverview {
     RuntimeOverview {
-        product_name: "tenra Guardrail",
+        product_name: "Guardrail by Tenra",
         primary_surface: "desktop",
         runtime_shape: "headless-service",
         tool_host_boundary: "required",

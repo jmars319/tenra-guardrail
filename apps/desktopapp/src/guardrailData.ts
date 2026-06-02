@@ -56,7 +56,7 @@ export const suiteClientNavigation = [
   {
     id: "suite-clients",
     label: "Suite Clients",
-    description: "Inspect how other tenra apps should enter the Tool Host boundary."
+    description: "Inspect how other Tenra apps should enter the Tool Host boundary."
   }
 ];
 
@@ -64,7 +64,7 @@ export const suiteClientRequests: ToolRequest[] = [
   {
     id: "suite-registry-ledger-export",
     kind: "write-file",
-    contents: "{\"source\":\"tenra Registry\",\"target\":\"tenra Ledger\"}",
+    contents: "{\"source\":\"Registry by Tenra\",\"target\":\"Ledger by Tenra\"}",
     path: "exports/registry-ledger-handoff.json",
     projectId: "tenra-registry",
     requestedAt: "0",

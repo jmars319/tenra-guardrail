@@ -70,7 +70,7 @@ export function ProfilesPanel({
     <Panel
       id="guardrail-profiles"
       activeSection={activeSection}
-      title="tenra Guardrail Profiles"
+      title="Guardrail by Tenra Profiles"
       subtitle="Profiles expose concrete boundary posture instead of prompt-only safety."
     >
       {seededProfiles.map((profile) => (

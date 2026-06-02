@@ -7,7 +7,7 @@ export function WebHeader() {
       <p className="eyebrow">Web channel</p>
       <h1>{appMetadata.name}</h1>
       <p className="lead">
-        tenra Guardrail is desktop-first. The web channel is reserved for remote visibility and
+        Guardrail by Tenra is desktop-first. The web channel is reserved for remote visibility and
         secondary review flows.
       </p>
       <p>{guardrailStatement}</p>

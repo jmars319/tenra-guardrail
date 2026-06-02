@@ -14,7 +14,7 @@ Runs as a complete review queue and decision workspace with local requests, temp
 
 ## Repository Path
 
-`capabilities/safety/tenra Guardrail`
+`capabilities/safety/Guardrail by Tenra`
 
 ## Accepted Inputs
 
@@ -29,7 +29,7 @@ Runs as a complete review queue and decision workspace with local requests, temp
 
 ## Emitted Outputs
 
-- `tenra-guardrail.external-action-review.v1` to tenra Guardrail
+- `tenra-guardrail.external-action-review.v1` to Guardrail by Tenra
 - `tenra-guardrail.external-action-decision.v1` to source apps
 
 ## Standard Controls

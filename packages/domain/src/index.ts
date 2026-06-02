@@ -55,7 +55,7 @@ export const seededProviders: ProviderConnectionSummary[] = [
 export const seededProfiles: GuardrailProfileSummary[] = [
   {
     id: "profile-default" as EntityId<"guardrailProfile">,
-    name: "Default tenra Guardrail",
+    name: "Default Guardrail by Tenra",
     description: "Deterministic deny-by-default runtime profile.",
     policyMode: "deny-by-default"
   },
@@ -70,7 +70,7 @@ export const seededProfiles: GuardrailProfileSummary[] = [
 export const seededProjects: ProjectSummary[] = [
   {
     id: "project-guardrail-app" as EntityId<"project">,
-    name: "tenra Guardrail Desktop",
+    name: "Guardrail by Tenra Desktop",
     profileId: "profile-default" as EntityId<"guardrailProfile">,
     lastOpenedAt: "2026-03-15T09:00:00.000Z" as IsoTimestamp
   },

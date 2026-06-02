@@ -2,7 +2,7 @@
   "name": "tenra-guardrail",
   "private": true,
   "version": "0.1.0",
-  "description": "Local-first tenra safety boundary for Tool Host policy review and agent action control.",
+  "description": "Guardrail by Tenra is a local safety boundary for policy review and external action control.",
   "packageManager": "pnpm@10.32.1",
   "engines": {
     "node": ">=22.21.1",
@@ -20,7 +20,7 @@
     "build:desktop": "pnpm --filter @guardrail/desktopapp build:tauri",
     "package:desktop": "pnpm run build:desktop",
     "install:desktop": "pnpm run package:desktop && bash ./scripts/install-desktop-app.sh",
-    "launch:desktop": "open -n \"/Applications/tenra Guardrail.app\"",
+    "launch:desktop": "open -n \"/Applications/Guardrail by Tenra.app\"",
     "build:mobile": "pnpm --filter @guardrail/mobileapp build",
     "lint": "pnpm -r --workspace-concurrency=1 run lint",
     "typecheck": "pnpm -r --workspace-concurrency=1 run typecheck",

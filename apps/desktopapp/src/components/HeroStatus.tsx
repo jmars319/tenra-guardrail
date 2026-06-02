@@ -12,7 +12,7 @@ export function HeroStatus({ overview, runtimeSource }: HeroStatusProps) {
         <p className="eyebrow">Runtime Boundary</p>
         <h2>Local desktop shell, headless Rust runtime, explicit Tool Host</h2>
         <p className="hero-copy">
-          tenra Guardrail loads a real policy, evaluates tool requests through the Tool Host,
+          Guardrail by Tenra loads a real policy, evaluates tool requests through the Tool Host,
           denies unsafe operations deterministically, and returns structured coaching instead
           of acting unsafely.
         </p>
