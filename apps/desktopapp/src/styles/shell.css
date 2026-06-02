@@ -1,0 +1,78 @@
+.desktop-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(280px, 320px) 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.sidebar,
+.hero,
+.panel {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 14, 19, 0.8);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.sidebar {
+  border-radius: 28px;
+  padding: 1.25rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.brand-card {
+  padding: 1.25rem;
+  border-radius: 22px;
+  background: linear-gradient(160deg, rgba(22, 28, 36, 0.96), rgba(27, 54, 49, 0.62));
+}
+
+.nav-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.nav-item {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  color: inherit;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  transform: translateY(-1px);
+  background: rgba(236, 193, 102, 0.14);
+}
+
+.nav-item small {
+  display: block;
+  margin-top: 0.35rem;
+  color: #aab7ae;
+}
+
+.content {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.hero {
+  border-radius: 30px;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.hero-copy {
+  max-width: 58rem;
+  font-size: 1.05rem;
+  color: #c6d2ca;
+}

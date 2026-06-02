@@ -5,16 +5,16 @@
 1. Run `pnpm bootstrap`.
 2. Review `pnpm check:env` output for missing local prerequisites.
 3. Use `pnpm doctor` for a fast lint and typecheck pass.
-4. Use `pnpm verify:all` before committing scaffold-level changes.
+4. Use `pnpm verify:all` before committing product or standards changes.
 
 ## Running apps
 
 - Desktop: `pnpm dev:desktop`
-- Web placeholder: `pnpm dev:web`
-- Mobile placeholder: `pnpm dev:mobile`
+- Web review surface: `pnpm dev:web`
+- Mobile reserved surface: `pnpm dev:mobile`
 - Desktop + web together: `pnpm dev:both`
 
-`apps/desktopapp` is the only fully active product surface. The web and mobile apps exist so future work has stable directories, package names, and verification hooks.
+`apps/desktopapp` is the primary product surface. The web app supports secondary external review flows, and the mobile app stays reserved so future work has stable directories, package names, and verification hooks.
 
 ## System health and verification
 
@@ -22,9 +22,9 @@
 - `pnpm check:packages`: validates workspace manifests and `pnpm` package graph resolution.
 - `pnpm lint`: lints every workspace.
 - `pnpm typecheck`: typechecks every workspace.
-- `pnpm verify:web`: lints, typechecks, and builds the web placeholder.
+- `pnpm verify:web`: lints, typechecks, and builds the web review surface.
 - `pnpm verify:desktop`: lints, typechecks, builds the desktop UI, and runs `cargo check` for the Rust crate.
-- `pnpm verify:mobile`: validates the mobile placeholder without pretending it is an active product surface.
+- `pnpm verify:mobile`: validates the reserved mobile surface without pretending it is active product parity.
 - `pnpm doctor`: fast combined health check.
 
 ## Local Tooling
@@ -54,7 +54,7 @@ Prefer packages that map to real Guardrail concerns such as policy, runtime cont
 3. Add a root `dev:*` or `verify:*` script only if the surface is meaningfully active.
 4. Update `docs/REPO_MAP.md` and `README.md`.
 
-If a new surface becomes active, be explicit about why it no longer counts as a placeholder.
+If a new surface becomes active, be explicit about the product job it now owns.
 
 ## Desktop-first and local-first expectations
 

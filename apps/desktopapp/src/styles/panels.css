@@ -1,0 +1,90 @@
+.status-grid,
+.panel-grid,
+.settings-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.status-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.status-card,
+.metric-card {
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.status-card.safe strong,
+.status-pill.safe {
+  color: #9ee7b8;
+}
+
+.status-card.warning strong,
+.status-pill.warning {
+  color: #efc26b;
+}
+
+.status-card.neutral strong {
+  color: #d7e1db;
+}
+
+.panel-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.panel {
+  border-radius: 28px;
+  padding: 1.25rem;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
+}
+
+.panel.active {
+  transform: translateY(-2px);
+  border-color: rgba(239, 194, 107, 0.36);
+}
+
+.panel-header p {
+  color: #afbbb4;
+  margin: 0.4rem 0 0;
+}
+
+.panel-body {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.list-row,
+.summary-block {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.list-row p {
+  color: #aebbb3;
+  margin-top: 0.3rem;
+}
+
+.status-pill,
+.meta-chip {
+  white-space: nowrap;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.summary-block {
+  flex-direction: column;
+}

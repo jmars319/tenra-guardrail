@@ -58,9 +58,9 @@ pub fn build_denial_payload(request: &ToolRequest, trigger: DenialTrigger) -> To
             status: "denied",
             request_id,
             action_kind,
-            reason: "Protected paths are reserved for a future approval flow and are not accessible in v0.1.".to_string(),
+            reason: "Protected paths require explicit approval and are not accessible in the current runtime.".to_string(),
             risk_category: DenialRiskCategory::ProtectedPath,
-            user_instructions: "Stay within normal project files or wait for a future approval-backed access path.".to_string(),
+            user_instructions: "Stay within normal project files or use an approved access path before retrying.".to_string(),
             checklist: vec![
                 "Confirm the target is not part of a protected runtime path.".to_string(),
                 "Use a standard project file instead of internal repository metadata.".to_string(),
@@ -125,9 +125,9 @@ pub fn build_denial_payload(request: &ToolRequest, trigger: DenialTrigger) -> To
             risk_category: DenialRiskCategory::Shell,
             user_instructions: "Use the file boundary for safe reads and writes. Leave shell operations to explicit human control until a stricter approval path exists.".to_string(),
             checklist: vec![
-                "Avoid shell execution from the agent in v0.1.".to_string(),
+                "Avoid shell execution from the agent in the current runtime.".to_string(),
                 "Use project-local file inspection instead.".to_string(),
-                "Wait for a future approval-backed shell pathway.".to_string(),
+                "Use an approved shell pathway only after policy enables it.".to_string(),
             ],
             policy_rule: "deny-shell-disabled".to_string(),
             target_summary,
@@ -138,7 +138,7 @@ pub fn build_denial_payload(request: &ToolRequest, trigger: DenialTrigger) -> To
             action_kind: ToolRequestKind::NetworkRequest,
             reason: "Network-capable tooling is disabled in the current tenra Guardrail policy and runtime.".to_string(),
             risk_category: DenialRiskCategory::Network,
-            user_instructions: "Do not route network access through the agent in v0.1. Fetch the data manually or change policy intentionally in a future flow.".to_string(),
+            user_instructions: "Do not route network access through the agent while this policy is disabled. Fetch the data manually or change policy intentionally before retrying.".to_string(),
             checklist: vec![
                 "Confirm network access is actually required.".to_string(),
                 "Use a manual fetch path outside the agent runtime for now.".to_string(),

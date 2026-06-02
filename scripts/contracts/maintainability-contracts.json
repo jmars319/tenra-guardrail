@@ -1,0 +1,281 @@
+{
+  "packageName": "tenra-guardrail",
+  "packageScripts": [
+    "analyze:bundle",
+    "audit:maintainability",
+    "bootstrap",
+    "budget:bundle",
+    "build:desktop",
+    "build:mobile",
+    "build:web",
+    "check:env",
+    "check:packages",
+    "dev:both",
+    "dev:desktop",
+    "dev:mobile",
+    "dev:web",
+    "doctor",
+    "install:desktop",
+    "launch:desktop",
+    "lint",
+    "package:desktop",
+    "typecheck",
+    "verify:all",
+    "verify:desktop",
+    "verify:handoffs",
+    "verify:mobile",
+    "verify:web"
+  ],
+  "workspacePackages": [
+    {
+      "path": "apps/desktopapp/package.json",
+      "name": "@guardrail/desktopapp",
+      "exports": null
+    },
+    {
+      "path": "apps/mobileapp/package.json",
+      "name": "@guardrail/mobileapp",
+      "exports": null
+    },
+    {
+      "path": "apps/webapp/package.json",
+      "name": "@guardrail/webapp",
+      "exports": null
+    },
+    {
+      "path": "packages/api-contracts/package.json",
+      "name": "@guardrail/api-contracts",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "path": "packages/config/package.json",
+      "name": "@guardrail/config",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "path": "packages/domain/package.json",
+      "name": "@guardrail/domain",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "path": "packages/policy/package.json",
+      "name": "@guardrail/policy",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "path": "packages/privacy/package.json",
+      "name": "@guardrail/privacy",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "path": "packages/provider-config/package.json",
+      "name": "@guardrail/provider-config",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "path": "packages/runtime-contracts/package.json",
+      "name": "@guardrail/runtime-contracts",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "path": "packages/secrets/package.json",
+      "name": "@guardrail/secrets",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "path": "packages/shared-types/package.json",
+      "name": "@guardrail/shared-types",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "path": "packages/ui/package.json",
+      "name": "@guardrail/ui",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    },
+    {
+      "path": "packages/validation/package.json",
+      "name": "@guardrail/validation",
+      "exports": {
+        ".": "./src/index.ts"
+      }
+    }
+  ],
+  "packageExports": {
+    "packages/api-contracts/src/index.ts": [
+      "DesktopSnapshotPayload",
+      "ExternalActionReviewDecision",
+      "ExternalActionReviewDecisionValue",
+      "ExternalActionReviewRequest",
+      "GuardrailExternalActionKind",
+      "GuardrailReviewSourceApp",
+      "RuntimeEvent",
+      "RuntimeQueryMap",
+      "buildExternalActionReviewDecision"
+    ],
+    "packages/config/src/index.ts": [
+      "appMetadata",
+      "defaultPorts",
+      "scaffoldDefaults"
+    ],
+    "packages/domain/src/index.ts": [
+      "ApprovalRequestSummary",
+      "GuardrailProfileSummary",
+      "ProjectSummary",
+      "ProviderConnectionSummary",
+      "ProviderKind",
+      "SessionSummary",
+      "seededApprovals",
+      "seededProfiles",
+      "seededProjects",
+      "seededProviders",
+      "seededSessions"
+    ],
+    "packages/policy/src/index.ts": [
+      "GuardrailPolicy",
+      "defaultGuardrailPolicy",
+      "policyPosture"
+    ],
+    "packages/privacy/src/index.ts": [
+      "AuditRedactionRule",
+      "PrivacyMode",
+      "auditRedactionRules",
+      "privacyDefaults"
+    ],
+    "packages/provider-config/src/index.ts": [
+      "ProviderDefinition",
+      "providerCatalog"
+    ],
+    "packages/runtime-contracts/src/index.ts": [
+      "AuditLogEntry",
+      "DenialRiskCategory",
+      "EvaluateServiceActionRequest",
+      "EvaluateServiceActionResponse",
+      "GuardrailClientApp",
+      "GuardrailDecisionStatus",
+      "GuardrailResourcePointer",
+      "GuardrailServiceActionKind",
+      "GuardrailServiceBoundary",
+      "GuardrailServiceDecision",
+      "GuardrailServiceRequest",
+      "NetworkRequestStub",
+      "ProviderConnection",
+      "ReadFileRequest",
+      "ResourceRiskCategory",
+      "RuntimeBoundarySnapshot",
+      "RuntimeOverview",
+      "ShellCommandRequest",
+      "ToolActionKind",
+      "ToolAllowedResponse",
+      "ToolDeniedResponse",
+      "ToolExecutionResponse",
+      "ToolRequest",
+      "ToolRequestBase",
+      "WriteFileRequest"
+    ],
+    "packages/secrets/src/index.ts": [
+      "SecretPatternDescriptor",
+      "redactLikelySecret",
+      "secretPatternCatalog"
+    ],
+    "packages/shared-types/src/index.ts": [
+      "Brand",
+      "EntityId",
+      "IsoTimestamp",
+      "Result",
+      "RuntimeSurface"
+    ],
+    "packages/ui/src/index.ts": [
+      "DesktopNavItem",
+      "desktopNavigation",
+      "guardrailStatement"
+    ],
+    "packages/validation/src/index.ts": [
+      "validateExternalActionReviewDecision",
+      "validateExternalActionReviewRequest",
+      "validateGuardrailPolicy",
+      "validateProviderDefinition"
+    ]
+  },
+  "schemaIds": [
+    "tenra-align.alignment-snapshot.v1",
+    "tenra-align.review-reply-route.v1",
+    "tenra-assembly.proxy-notice-handoff.v1",
+    "tenra-derive.reasoning-brief.v1",
+    "tenra-facet.orientation-packet.v1",
+    "tenra-guardrail.external-action-decision.v1",
+    "tenra-guardrail.external-action-review.v1",
+    "tenra-guardrail.external-review-decisions.v1",
+    "tenra-guardrail.external-review-detail.v1",
+    "tenra-guardrail.external-review-queue.v1",
+    "tenra-partition.lab-validation-request.v1",
+    "tenra-partition.lab-validation-result.v1",
+    "tenra-registry.assembly-document-request.v1",
+    "tenra-registry.ledger-export.v1",
+    "tenra-scout.opportunity-handoff.v1",
+    "tenra-sentinel.risk-brief.v1",
+    "tenra-vicina.workflow-handoff.v1"
+  ],
+  "storageKeys": [
+    "tenra-guardrail-external-review-queue:v1"
+  ],
+  "tauriCommands": [
+    "get_runtime_boundary_snapshot",
+    "get_runtime_overview",
+    "run_tool_request"
+  ],
+  "tauriMenuIds": [
+    "close-window",
+    "quit",
+    "settings"
+  ],
+  "uiSectionIds": [
+    "anthropic",
+    "approval-network",
+    "approvals",
+    "fallback-network",
+    "fallback-read-env",
+    "fallback-read-readme",
+    "fallback-read-ssh",
+    "fallback-shell",
+    "guardrail-profiles",
+    "openai",
+    "profile-default",
+    "profile-review-heavy",
+    "project-agent-lab",
+    "project-guardrail-app",
+    "projects",
+    "provider-connection-anthropic",
+    "provider-connection-openai",
+    "provider-connections",
+    "runtime-diagnostics",
+    "session-active",
+    "session-review",
+    "sessions",
+    "settings",
+    "suite-assembly-send-document",
+    "suite-clients",
+    "suite-proxy-profile-read",
+    "suite-registry-ledger-export",
+    "suite-scout-evidence-read"
+  ]
+}

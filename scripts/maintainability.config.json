@@ -1,0 +1,46 @@
+{
+  "label": "tenra-guardrail",
+  "maxImplementationFileLines": 325,
+  "maxStyleFileLines": 300,
+  "maxAppShellLines": 250,
+  "maxDesktopMainLines": 450,
+  "maxDomainBarrelLines": 225,
+  "nearBudgetMarginLines": 25,
+  "nearBudgetMarginKb": 4,
+  "initialBundleBudgetKb": 222,
+  "requireBuiltAssets": true,
+  "assetDirs": ["apps/desktopapp/dist/assets", "apps/webapp/dist/assets"],
+  "routeChunkBudgetsKb": {
+    "apps/desktopapp/dist/assets/index-.*\\.js$": 222,
+    "apps/webapp/dist/assets/index-.*\\.js$": 206
+  },
+  "sourceRoots": ["apps", "packages", "scripts"],
+  "sourceExtensions": [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".rs", ".css", ".scss"],
+  "allowedGenerated": [
+    "apps/desktopapp/src/vite-env.d.ts",
+    "apps/webapp/src/vite-env.d.ts"
+  ],
+  "contractSnapshotPath": "scripts/contracts/maintainability-contracts.json",
+  "cssEntryFiles": ["apps/desktopapp/src/styles.css"],
+  "bannedStartupImports": {
+    "apps/desktopapp/src/App.tsx": [
+      "@tauri-apps/api/core",
+      "@guardrail/domain",
+      "@guardrail/provider-config",
+      "@guardrail/secrets",
+      "@guardrail/validation"
+    ],
+    "apps/webapp/src/App.tsx": [
+      "fetch\\(",
+      "@guardrail/api-contracts"
+    ]
+  },
+  "assetBudgets": [
+    { "path": "apps/desktopapp/src-tauri/icons/icon.icns", "maxBytes": 652000 },
+    { "path": "apps/desktopapp/src-tauri/icons/icon.png", "maxBytes": 172000 },
+    { "path": "apps/desktopapp/src-tauri/icons/icon.ico", "maxBytes": 140000 }
+  ],
+  "specificFileBudgets": {
+    "scripts/audit-maintainability.mjs": 360
+  }
+}

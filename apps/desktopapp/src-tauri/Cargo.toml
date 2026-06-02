@@ -1,7 +1,7 @@
 [package]
 name = "guardrail-desktopapp"
 version = "0.1.0"
-description = "tenra Guardrail desktop shell and runtime scaffold"
+description = "tenra Guardrail desktop shell and local runtime boundary"
 authors = ["tenra"]
 license = "UNLICENSED"
 edition = "2021"

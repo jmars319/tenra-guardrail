@@ -1,0 +1,41 @@
+.review-import {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.review-import span {
+  color: #afbbb4;
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.review-import textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.review-queue,
+.decision-actions {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.review-queue-item {
+  flex-direction: column;
+}
+
+.review-queue-item small {
+  color: #afbbb4;
+  display: block;
+  margin-top: 0.35rem;
+}
+
+.decision-actions {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+}
+
+.decision-actions .request-button {
+  text-align: center;
+}

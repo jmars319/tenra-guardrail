@@ -15,4 +15,4 @@ if (appJson.guardrail?.primarySurface !== "desktopapp") {
   process.exit(1);
 }
 
-console.log("mobile placeholder metadata is structurally valid");
+console.log("mobile reserved-surface metadata is structurally valid");

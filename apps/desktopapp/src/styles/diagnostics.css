@@ -1,0 +1,112 @@
+.diagnostic-stack,
+.request-actions,
+.audit-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.request-button {
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.9rem 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  color: inherit;
+  cursor: pointer;
+}
+
+.request-button.active,
+.request-button:hover {
+  background: rgba(236, 193, 102, 0.14);
+  border-color: rgba(239, 194, 107, 0.28);
+}
+
+.request-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.request-button small,
+.diagnostic-note,
+.audit-entry p,
+.audit-meta small,
+.result-meta {
+  color: #afbbb4;
+}
+
+.request-button small {
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.decision-card {
+  padding: 1rem;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  display: grid;
+  gap: 0.75rem;
+}
+
+.decision-card.allowed {
+  border-color: rgba(158, 231, 184, 0.22);
+}
+
+.decision-card.denied {
+  border-color: rgba(239, 194, 107, 0.28);
+}
+
+.decision-card h3,
+.decision-card p,
+.audit-entry strong,
+.audit-entry p,
+.audit-meta span,
+.audit-meta small {
+  margin: 0;
+}
+
+.preview-block {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.28);
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.decision-target code,
+.diagnostic-note code {
+  font-family: "SFMono-Regular", "IBM Plex Mono", monospace;
+}
+
+.result-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.checklist {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.checklist li + li {
+  margin-top: 0.35rem;
+}
+
+.audit-entry {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 0.9rem 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.audit-meta {
+  display: grid;
+  gap: 0.2rem;
+  justify-items: end;
+}

@@ -1,0 +1,42 @@
+:root {
+  color: #ecf1ed;
+  background:
+    radial-gradient(circle at top left, rgba(223, 169, 81, 0.18), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(47, 111, 94, 0.16), transparent 30%),
+    linear-gradient(180deg, #12161d 0%, #0d1117 100%);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.74rem;
+  color: #efc26b;
+}
+
+.hero h2,
+.panel h3,
+.brand-card h1,
+.list-row p,
+.list-row strong,
+.status-card span,
+.status-card strong,
+.metric-card span,
+.metric-card strong {
+  margin: 0;
+}

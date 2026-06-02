@@ -10,11 +10,11 @@
 
 ## Apps
 
-- `apps/desktopapp`: primary Tauri application. The React UI presents local state while the Rust layer owns runtime orchestration, Tool Host routing, policy checks, approvals, audit, providers, and secret-detection scaffolding.
+- `apps/desktopapp`: primary Tauri application. The React UI presents local state while the Rust layer owns runtime orchestration, Tool Host routing, policy checks, approvals, audit, providers, and secret-detection boundaries.
 - `apps/desktopapp/src`: desktop UI entrypoints and layout.
 - `apps/desktopapp/src-tauri`: Rust application crate and Tauri configuration.
-- `apps/webapp`: lightweight future web surface that explicitly states desktop-first product focus.
-- `apps/mobileapp`: lightweight future mobile placeholder with structural validation only.
+- `apps/webapp`: secondary external review surface that explicitly states desktop-first product focus.
+- `apps/mobileapp`: reserved mobile surface with structural validation only.
 
 ## Packages
 
@@ -28,7 +28,7 @@
 - `packages/secrets`: secret pattern descriptors and redaction helper.
 - `packages/validation`: small validation helpers for config and policy objects.
 - `packages/ui`: shared desktop navigation metadata and product copy.
-- `packages/config`: scaffold defaults such as ports, product metadata, and derived policy defaults.
+- `packages/config`: runtime defaults such as ports, product metadata, and derived policy defaults.
 
 ## Root scripts
 

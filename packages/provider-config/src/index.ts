@@ -22,6 +22,6 @@ export const providerCatalog: ProviderDefinition[] = [
     apiBaseUrlEnv: "ANTHROPIC_API_BASE_URL",
     enabledByDefault: false,
     networkToolsEnabledByDefault: false,
-    notes: "Provider connector scaffold only. Runtime access remains deny-by-default."
+    notes: "Provider connector is defined for local setup. Runtime access remains deny-by-default."
   }
 ];

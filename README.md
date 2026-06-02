@@ -16,7 +16,7 @@ The project is not a generic SaaS starter. Its center of gravity is policy enfor
 - Agents never execute tools directly.
 - Network-capable tooling is disabled by default in v0.
 - Desktop-first because local filesystem, process, approval, and secrets boundaries live on the machine.
-- Web and mobile surfaces are placeholders until the runtime spine is mature.
+- The web channel supports secondary external review visibility; mobile remains reserved until it can support the runtime model.
 - Policy and runtime contracts are shared packages, not UI-only conventions.
 
 ## Architecture
@@ -24,8 +24,8 @@ The project is not a generic SaaS starter. Its center of gravity is policy enfor
 ```text
 apps/
   desktopapp/   Primary Tauri + React product surface
-  webapp/       Future web placeholder
-  mobileapp/    Future mobile placeholder
+  webapp/       Secondary external review surface
+  mobileapp/    Reserved mobile surface
 
 packages/
   runtime-contracts/ Tool Host and runtime service contracts
@@ -42,13 +42,13 @@ packages/
 ## Current State
 
 - The desktop app is the only active product surface.
-- Web and mobile apps are placeholders for future activation.
+- The web app is a secondary external review surface; mobile remains reserved for future activation.
 - Runtime, policy, provider, privacy, and validation packages define the v0 spine.
 - The local runtime diagnostics and JSON snapshot export support review work.
 
 ## Deployment Posture
 
-Guardrail is a local desktop product scaffold. It should not be positioned as a complete agent-safety platform until real Tool Host enforcement, approval UX, audit storage, provider handling, and OS-level boundaries have been validated.
+Guardrail is a local desktop safety product. It should not be positioned as a complete agent-safety platform until Tool Host enforcement, approval UX, audit storage, provider handling, and OS-level boundaries have been validated.
 
 ## Working Locally
 
