@@ -24,6 +24,7 @@ export interface ExternalReviewQueueItem {
 
 const queuePath = path.resolve(process.env.GUARDRAIL_EXTERNAL_REVIEW_QUEUE_PATH ?? ".tenra-guardrail-external-reviews.json");
 
+// Queue persistence boundary
 function readPersistedQueue(): ExternalReviewQueueItem[] {
   if (!fs.existsSync(queuePath)) {
     return [];
@@ -54,6 +55,7 @@ function writePersistedQueue() {
 
 const queue: ExternalReviewQueueItem[] = readPersistedQueue();
 
+// Review request boundary
 function upsertRequest(request: ExternalActionReviewRequest): ExternalReviewQueueItem {
   const importedAt = new Date().toISOString();
   const existingIndex = queue.findIndex((item) => item.request.traceId === request.traceId);
@@ -83,6 +85,7 @@ function upsertRequest(request: ExternalActionReviewRequest): ExternalReviewQueu
   return item;
 }
 
+// Queue export boundary
 export function exportExternalReviewQueue() {
   return {
     ok: true,
@@ -126,6 +129,7 @@ export function importExternalReviewPayload(payload: unknown) {
   return { ...exportExternalReviewQueue(), importedCount: imported.length };
 }
 
+// Decision contract boundary
 export function attachExternalReviewDecision(traceId: string, payload: unknown) {
   const decision = payload as ExternalActionReviewDecision;
   const errors = validateExternalActionReviewDecision(decision);
@@ -174,6 +178,7 @@ export function createExternalReviewDecision(input: {
   return { ok: true, item };
 }
 
+// Callback delivery boundary
 export async function acknowledgeExternalReviewDecision(traceId: string, callbackUrl?: string | undefined) {
   const item = queue.find((candidate) => candidate.request.traceId === traceId);
   if (!item?.decision) {

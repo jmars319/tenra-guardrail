@@ -26,6 +26,7 @@ interface SuiteClientsPanelProps {
   runtimeSource: "rust" | "fallback";
 }
 
+// Suite request boundary
 export function SuiteClientsPanel({
   activeSection,
   externalReview,
@@ -70,6 +71,7 @@ export function SuiteClientsPanel({
   );
 }
 
+// Policy exercise boundary
 function SuiteRequestList({
   requestRunning,
   runRequest,
@@ -107,6 +109,7 @@ function SuiteRequestList({
   );
 }
 
+// External review boundary
 function ExternalReviewSummary({
   externalReview
 }: {
@@ -157,6 +160,7 @@ function ExternalReviewImporter({
   );
 }
 
+// Decision queue boundary
 function ExternalReviewQueue({
   lastExternalDecisionJson,
   onDecide,

@@ -20,6 +20,7 @@ impl ToolHost {
         Self { policy }
     }
 
+    // Execution safety boundary
     pub fn handle(&self, request: ToolRequest) -> ToolExecutionResponse {
         // All agent capabilities must cross this boundary before any local operation happens.
         match evaluate_request(&self.policy, &request) {
@@ -30,6 +31,7 @@ impl ToolHost {
         }
     }
 
+    // Local operation boundary
     fn execute_allowed(
         &self,
         request: ToolRequest,
@@ -81,6 +83,7 @@ impl ToolHost {
     }
 }
 
+// Response preview boundary
 fn preview_bytes(bytes: &[u8]) -> String {
     let preview = String::from_utf8_lossy(bytes);
     let mut truncated = preview.chars().take(180).collect::<String>();
@@ -90,6 +93,7 @@ fn preview_bytes(bytes: &[u8]) -> String {
     truncated
 }
 
+// Policy fixture boundary
 #[cfg(test)]
 mod tests {
     use std::{

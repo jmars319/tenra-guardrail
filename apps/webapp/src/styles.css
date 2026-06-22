@@ -1,4 +1,5 @@
 :root {
+  /* Web review theme */
   color: #f5f5ef;
   background:
     radial-gradient(circle at top left, rgba(233, 185, 73, 0.2), transparent 36%),
@@ -15,6 +16,7 @@ body {
   min-height: 100vh;
 }
 
+/* Queue workflow layout */
 .web-shell {
   min-height: 100vh;
   padding: 4rem 1.5rem;
@@ -107,6 +109,7 @@ body {
   padding: 0.45rem 0.8rem;
 }
 
+/* Decision detail layout */
 .retry-banner,
 .detail-heading,
 .detail-grid {
@@ -189,6 +192,7 @@ p {
 }
 
 :root {
+  /* Suite shell theme */
   color-scheme: dark;
   --jamarq-canvas: #0D0D0F;
   --jamarq-surface: #1E1E22;

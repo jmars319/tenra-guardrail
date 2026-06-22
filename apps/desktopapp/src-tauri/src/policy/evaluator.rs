@@ -51,6 +51,7 @@ pub enum DenialTrigger {
     },
 }
 
+// Request classification boundary
 pub fn evaluate_request(policy: &GuardrailPolicy, request: &ToolRequest) -> EvaluationOutcome {
     match request {
         ToolRequest::ReadFile { path, .. } => {
@@ -80,6 +81,7 @@ pub fn evaluate_request(policy: &GuardrailPolicy, request: &ToolRequest) -> Eval
     }
 }
 
+// Filesystem policy boundary
 fn evaluate_path_access(
     policy: &GuardrailPolicy,
     target_path: &Path,
@@ -127,6 +129,7 @@ fn evaluate_path_access(
     }
 }
 
+// Shell policy boundary
 fn evaluate_shell(policy: &GuardrailPolicy, command: &str) -> EvaluationOutcome {
     let normalized_command = command.to_ascii_lowercase();
 
@@ -146,6 +149,7 @@ fn evaluate_shell(policy: &GuardrailPolicy, command: &str) -> EvaluationOutcome 
     })
 }
 
+// Path normalization boundary
 fn resolve_request_path(policy: &GuardrailPolicy, input: &str) -> PathBuf {
     if let Some(home_relative) = input.strip_prefix("~/") {
         return home_dir()
@@ -181,6 +185,7 @@ fn path_within_roots(target_path: &Path, roots: &[String]) -> bool {
         .any(|root| target_path.starts_with(root))
 }
 
+// Pattern matching boundary
 fn match_path_pattern(target_path: &Path, patterns: &[String]) -> Option<String> {
     patterns
         .iter()

@@ -48,6 +48,7 @@ const maxDomainBarrel = Number(config.maxDomainBarrelLines ?? 250);
 const nearLineMargin = Number(config.nearBudgetMarginLines ?? 25);
 const nearAssetMarginBytes = Number(config.nearBudgetMarginKb ?? 4) * 1024;
 
+// Audit configuration boundary
 function readJson(relativePath, fallback) {
   const absolute = path.join(root, relativePath);
   return fs.existsSync(absolute) ? JSON.parse(fs.readFileSync(absolute, "utf8")) : fallback;
@@ -57,6 +58,7 @@ function normalizePath(value) {
   return value.replaceAll("\\", "/");
 }
 
+// Source inventory boundary
 function walk(directory, files = []) {
   if (!fs.existsSync(directory)) return files;
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
@@ -149,6 +151,7 @@ function extractSchemaIds(files) {
   return [...ids].sort();
 }
 
+// Contract snapshot boundary
 function extractStringConstants(files, pattern) {
   const values = new Set();
   for (const file of files) {
@@ -197,6 +200,7 @@ function actualContracts(files) {
   };
 }
 
+// Budget enforcement boundary
 function compareContracts(actual) {
   const snapshotPath = config.contractSnapshotPath ? path.join(root, config.contractSnapshotPath) : "";
   if (!snapshotPath || !fs.existsSync(snapshotPath)) return ["contract snapshot is missing."];
@@ -281,6 +285,7 @@ if (writeContracts) {
 }
 violations.push(...compareContracts(contracts));
 
+// Audit output boundary
 console.log((config.label ?? path.basename(root)) + " maintainability audit");
 console.log("");
 console.log("Largest implementation files:");
